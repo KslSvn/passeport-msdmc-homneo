@@ -131,6 +131,14 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); }
 .comp-comment { margin-top: .5rem; }
 .comp-comment textarea { font-size: .82rem; padding: .5rem .75rem; border-radius: 6px; min-height: 60px; resize: vertical; }
 .comp-date { font-size: .72rem; color: var(--muted); margin-top: .3rem; }
+.comp-annee { display: inline-block; font-size: .68rem; font-weight: 600; color: var(--accent2); background: rgba(96,165,250,.12); border-radius: 99px; padding: .1rem .55rem; margin-left: .4rem; vertical-align: middle; }
+.comp-details-toggle { font-size: .75rem; color: var(--accent); cursor: pointer; text-decoration: underline; }
+.comp-details { margin-top: .6rem; padding: .75rem 1rem; background: var(--card-hover); border-radius: 8px; border: 1px solid var(--border); }
+.comp-detail-block { margin-bottom: .7rem; }
+.comp-detail-block:last-child { margin-bottom: 0; }
+.comp-detail-code { font-weight: 700; color: var(--accent2); font-size: .82rem; margin-bottom: .25rem; }
+.comp-detail-bullets { margin: 0; padding-left: 1.2rem; font-size: .82rem; color: var(--text); }
+.comp-detail-bullets li { margin-bottom: .25rem; line-height: 1.4; }
 
 /* ── TEACHER TABLE ── */
 .students-table { width: 100%; border-collapse: collapse; }
@@ -276,61 +284,61 @@ const BLOCS = [
   {
     id: 'b1', num: '01', title: 'Audit et conception de la stratégie marketing omnicanale éthique et responsable', color: 'var(--b1)',
     competencies: [
-      { id: 'b1_c1', code: 'M1.1', name: 'Comportement du consommateur dans la nouvelle économie et stratégie marketing omnicanale', hours: 18 },
-      { id: 'b1_c2', code: 'M1.2', name: 'Stratégie marketing de l\'innovation', hours: 18 },
-      { id: 'b1_c3', code: 'M1.3', name: 'Stratégie digitale data driven, growth marketing et inbound marketing', hours: 20 },
-      { id: 'b1_c4', code: 'M1.4', name: 'Marketing expérientiel et stratégie de management de l\'expérience client', hours: 20 },
-      { id: 'b1_c5', code: 'M1.5', name: 'Stratégie de communication 360°', hours: 26 },
-      { id: 'b1_c6', code: 'M1.6', name: 'Stratégie médias sociaux (SMM)', hours: 18 },
-      { id: 'b1_c7', code: 'M1.7', name: 'Stratégie de marketing éthique et responsable et démarche RSE', hours: 18 },
+      { id: 'b1_c1', code: 'M1.1', name: 'Comportement du consommateur dans la nouvelle économie et stratégie marketing omnicanale', hours: 18, annee: '1ère année', details: [ { code: 'C1.1', bullets: ['Analyser le comportement du consommateur dans la nouvelle économie (uberisation, économie du partage, servicisation, économie circulaire, liquid expectations et living services, mobilité et monophobie)et adapter la stratégie marketing en fonction du contexte.', 'Conduire un diagnostic stratégique de l’entreprise ou de ses DAS et en tirer les informations majeures et les axes de développement.', 'Sur la base du diagnostic interne/externe définir les orientations stratégiques en segmentant le marché identifié. Analyser l\'intérêt de se développer sur de nouveaux segments (IAD)', 'Définir une proposition de valeur en détaillant bénéfices et coûts perçus par le client pour créer une offre avec un positionnement différentiateur'] } ] },
+      { id: 'b1_c2', code: 'M1.2', name: 'Stratégie marketing de l\'innovation', hours: 18, annee: '1ère année', details: [ { code: 'C1.2', bullets: ['Organiser un processus de veille et définir les tendances.', 'Mettre en place une stratégie marketing de l\'innovation et un plan de lancement de nouveaux produits en utilisant les outils du marketing de l\'innovation (analyse des insight consommateurs, processus d’idéation, design thinking, analyse du portefeuille d’activité et choix de nouvelles aires de business, mapping d’opportunités, plan de lancement). Ce plan peut s\'appuyer sur la reflexion sur une innovation de rupture (disruptive). Intégrer la notion de conception universelle lors de la conception d\'un nouveau produit.'] } ] },
+      { id: 'b1_c3', code: 'M1.3', name: 'Stratégie digitale data driven, growth marketing et inbound marketing', hours: 20, annee: '1ère année', details: [ { code: 'C1.3', bullets: ['Réaliser un diagnostic concernant l’appropriation du digital par l’entreprise en prenant en compte ses spécificités, ses produits, sa concurrence, sa cible. Ce diagnostic inclut également la maturité de l\'entreprise dans l\'utilisation de l\'IA'] }, { code: 'C1.4', bullets: ['Développer une stratégie digitale adaptée à l’analyse de la situation réalisée. Construire les stratégies de growth marketing, d\'Inbound marketing et stratégies data driven. Intégrer dans la stratégie l’utilisation de l’IA.', 'Définir des objectifs adaptés (développement de la visibilité, acquisition de trafic, génération de CA ou de leads, optimisation du ROI…).', 'Définir un positionnement clair et distinctif sur le marché du e-commerce', 'Définir une stratégie e-business multicanale (Web to store, Store to Web, Mobile to store to Web…).'] } ] },
+      { id: 'b1_c4', code: 'M1.4', name: 'Marketing expérientiel et stratégie de management de l\'expérience client', hours: 20, annee: '2ème année', details: [ { code: 'C1.5', bullets: ['Auditer l’expérience client en cartographiant et diagnostiquant les points de rencontre de l’entreprise et de ses clients. Définir le profil de sa clientèle en ligne et hors ligne et créer des personnas pertinents et leur user stories. Scénariser le parcours client et proposer des solutions omnicanales pour créer des expériences client uniques.  Utiliser l\'expérience client comme stratégie de différentiation. Créer et utiliser des indicateurs de performance de l’expérience client. Intégrer l\'IA pour offrir des expériences ultra-ciblées qui répondent précisément aux préférences et comportements individuels des consommateurs et la réalité augmentée et la réalité virtuelle pour enrichir l’expérience client.'] } ] },
+      { id: 'b1_c5', code: 'M1.5', name: 'Stratégie de communication 360°', hours: 26, annee: '1ère année', details: [ { code: 'C1.6', bullets: ['Définir une stratégie de communication omnicanale s’intégrant dans la stratégie marketing générale. Sélectionner des supports de communication adaptés aux produits et à la stratégie et établir un plan media cross canal, incluant la gestion des relation publiques 360°.', 'Modèles POEM, POEMsm, PESO'] } ] },
+      { id: 'b1_c6', code: 'M1.6', name: 'Stratégie médias sociaux (SMM)', hours: 18, annee: '1ère année', details: [ { code: 'C1.7', bullets: ['Identifier les forces et faiblesses de l’entreprise sur les réseaux sociaux, les menaces et les opportunités, les tendances et la position de la concurrence.', 'Identifier la(les) communauté(s) de l’entreprise, sa sociologie ainsi que les influenceurs', 'Mettre en place une stratégie SMM (social media marketing) mettant en relation les attentes de la communauté et les valeurs et promesses de l’organisation, utilisant le social media mix (public, plateformes, publications, périodicité)', 'Comprendre, identifier et exploiter les tendances sur les réseaux (trend)', 'Gerer La publicité sur les réseaux sociaux.', 'Surveiller et gérer la répuitation numérique. Gérer les crises sur les réseaux.', 'Éthique et responsabilité sociale dans le SMM', 'utiliser le marketing d\'influence'] } ] },
+      { id: 'b1_c7', code: 'M1.7', name: 'Stratégie de marketing éthique et responsable et démarche RSE', hours: 18, annee: '2ème année', details: [ { code: 'C1.8', bullets: ['Contribuer à la mise en place d\'une démarche RSE au sein de l\'entreprise. Intégrer la RSE dans une stratégie de marketing éthique et responsable. Déploiement d’une stratégie marketing transparente éthique et responsable (s’inspirant des normes telles que Pacte Mondial des Nations Unies, ISO 26000, Global Reporting Initiative, Stratégie Européenne du Développement durable). Connaitre et éviter le green washing.'] } ] },
     ]
   },
   {
     id: 'b2', num: '02', title: 'Mise en œuvre des plans d\'action commerciale on-line et off-line', color: 'var(--b2)',
     competencies: [
-      { id: 'b2_c1', code: 'M2.1', name: 'Déclinaison des orientations stratégiques en plans commerciaux opérationnels omnicanaux', hours: 16 },
-      { id: 'b2_c2', code: 'M2.2', name: 'Ingénierie commerciale : prospection, vente et fidélisation multicanales avec l\'IA', hours: 20 },
-      { id: 'b2_c3', code: 'M2.3', name: 'Pilotage de la performance commerciale', hours: 16 },
-      { id: 'b2_c4', code: 'M2.4', name: 'Social selling', hours: 12 },
-      { id: 'b2_c5', code: 'M2.5', name: 'Mise en œuvre d\'une e-CRM', hours: 18 },
-      { id: 'b2_c6', code: 'M2.6', name: 'Propositions commerciales et négociation orale/écrite en anglais', hours: 44 },
+      { id: 'b2_c1', code: 'M2.1', name: 'Déclinaison des orientations stratégiques en plans commerciaux opérationnels omnicanaux', hours: 16, annee: '1ère année', details: [ { code: 'C2.1', bullets: ['Traduire les orientations stratégiques en plans commerciaux opérationnels', 'Analyser son portefeuille client et son portefeuille produits avec ou sans utilisation de l\'IA.', 'Planifier les actions, définir les objectifs de la force de vente'] } ] },
+      { id: 'b2_c2', code: 'M2.2', name: 'Ingénierie commerciale : prospection, vente et fidélisation multicanales avec l\'IA', hours: 20, annee: '2ème année', details: [ { code: 'C2.2', bullets: ['Développer un plan de prospection multicanal', 'Mettre en œuvre une stratégie de négociation complexe après avoir défini les marges et les leviers de négociation afin de conclure un accord gagnant-gagnant', 'Développer une stratégie de suivi/fidélisation client multicanale. Mesurer l’efficacité de la stratégie de fidélisation en mettant en place des indicateurs clefs de performance (KPI). Utiliser l’IA pour améliorer la fidélisation (analyse prédictive des besoins, personnalisation de l’expérience client,programmes de fidélité intelligents, analyse des sentiments, service client amélioré)'] } ] },
+      { id: 'b2_c3', code: 'M2.3', name: 'Pilotage de la performance commerciale', hours: 16, annee: '1ère année', details: [ { code: 'C2.3', bullets: ['Mettre en place les indicateurs de rentabilité adaptés aux produits et à l’unité commerciale en élaborant des tableaux de bord de gestion commerciale, administrer ces tableaux et tirer des conclusions en vue d’assurer un pilotage efficace de l’activité commerciale'] } ] },
+      { id: 'b2_c4', code: 'M2.4', name: 'Social selling', hours: 12, annee: '2ème année', details: [ { code: 'C2.4', bullets: ['Mettre en place une stratégie de social selling la plus adaptée à la situation de l’entreprise (referral selling, trigger selling, insight selling)', 'Inciter et former les équipes commerciales à s’approprier les réseaux sociaux professionnels', 'Développer l’évolution des achats directs sur les réseaux sociaux'] } ] },
+      { id: 'b2_c5', code: 'M2.5', name: 'Mise en œuvre d\'une e-CRM', hours: 18, annee: '2ème année', details: [ { code: 'C2.5', bullets: ['Construire une vue unique et centrale de ses clients, scénariser la relation client, segmenter ses clients et assurer le suivi de leur parcours d’achat en s’appuyant sur une e-crm.'] } ] },
+      { id: 'b2_c6', code: 'M2.6', name: 'Propositions commerciales et négociation orale/écrite en anglais', hours: 44, annee: '1ère & 2ème année', details: [ { code: 'C2.6', bullets: ['Communiquer en l’anglais à l’écrit comme à l’oral dans un contexte professionnel en utilisant le vocabulaire professionnel des affaires, du marketing et du digital afin de comprendre et se faire comprendre dans une relation commerciale, digitale ou managériale.'] } ] },
     ]
   },
   {
     id: 'b3', num: '03', title: 'Intelligence artificielle et pilotage du projet digital', color: 'var(--b3)',
     competencies: [
-      { id: 'b3_c1', code: 'M3.1', name: 'Pilotage d\'un projet digital, création de site et UX design accessible', hours: 44 },
-      { id: 'b3_c2', code: 'M3.2', name: 'Utilisation responsable de l\'IA, ingénierie du prompting et stratégie de contenu', hours: 30 },
-      { id: 'b3_c3', code: 'M3.3', name: 'Création de contenus visuels digitaux : image, vidéo, audio (avec ou sans IA)', hours: 47 },
-      { id: 'b3_c4', code: 'M3.4', name: 'Déploiement du community management et stratégies d\'influence', hours: 25 },
-      { id: 'b3_c5', code: 'M3.5', name: 'Marketing mobile et M-commerce', hours: 21 },
-      { id: 'b3_c6', code: 'M3.6', name: 'Droit du numérique et conformité RGPD', hours: 16 },
-      { id: 'b3_c7', code: 'M3.7', name: 'Management de la performance web et référencement (SEO/SEA)', hours: 24 },
-      { id: 'b3_c8', code: 'M3.8', name: 'Pilotage du e-business', hours: 21 },
+      { id: 'b3_c1', code: 'M3.1', name: 'Pilotage d\'un projet digital, création de site et UX design accessible', hours: 44, annee: '1ère année', details: [ { code: 'C3.1', bullets: ['Analyser les spécificités et les facteurs clefs d’un projet web', 'Définir une stratégie de développement de projet digital en fonction d’objectifs, d’état des lieux, de contraintes, de budget et de délais.', 'Créer une charte graphique Web ou respecter une charte existante', 'Réaliser un cahier des charges précis (spécifications fonctionnelle, graphique, ergonomiques, techniques, maintenance…)', 'Planifier les opérations, découper le projet', 'Dialoguer avec les spécialistes'] }, { code: 'C3.2', bullets: ['Créer un site et son arborescence, assurer son hébergement, enregistrer un nom de domaine.', 'Publier et mettre à jour des pages Web à l’aide d’un CMS et de l\'utilisation de langages et outils de création web (HTML, Javascript, XML, XHTML, HTML 5, CSS, PHP, ASPX, JSP…)'] }, { code: 'C3.3', bullets: ['développer l’ergonomie du site et intégrer l’UX (expérience utilisateur) Prendre en compte l’accessibilité numérique des personnes en situation de handicap telle que définie dans le RGAA).'] } ] },
+      { id: 'b3_c2', code: 'M3.2', name: 'Utilisation responsable de l\'IA, ingénierie du prompting et stratégie de contenu', hours: 30, annee: '1ère année', details: [ { code: 'C3.4', bullets: ['Dans le cadre de la stratégie inbound, développer le marketing de contenu. (Réaliser un livre blanc.'] }, { code: 'C3.5', bullets: ['– Utiliser l’Intelligence artificielle générative dans le cadre du marketing digital pour la création de contenu automatisé pour les sites web et blogs ; pour automatiser les interaction avec les clients via des chatbots intelligents. Ingenierie du prompting. Intégrer les notions d’éthique de l’IA et les implications légales.'] } ] },
+      { id: 'b3_c3', code: 'M3.3', name: 'Création de contenus visuels digitaux : image, vidéo, audio (avec ou sans IA)', hours: 47, annee: '1ère & 2ème année', details: [ { code: 'C3.6', bullets: ['Rechercher des photos dans des banques d’images. Retoucher, mettre en page, redimensionner les photos en fonction de leur utilisation (photoshop, Indesign).', 'Créer, monter des videos aux formats adaptés aux différents canaux digitaux (site Web, Youtube, réseaux sociaux), les sonoriser', 'Produire du contenu visuel respectant la charte graphique et l’identité de la marque', 'Utiliser le Web design pour mettre en forme une information sous forme de différents contenus (texte, image, video, animation…)', 'utiliser l\'IA pour générer des images', 'Utiliser l\'IA pour générer des videos', 'Appliquer les techniques de référencement aux supports visuels (balises Alt, description,…)', 'Respecter le droit de la propriété intellectuelle dans l’utilisation des supports visuels.', 'développer le visual selling afin d\'utiliser l\'image et les supports visuels comme leviers de conviction et de conversion.'] } ] },
+      { id: 'b3_c4', code: 'M3.4', name: 'Déploiement du community management et stratégies d\'influence', hours: 25, annee: '1ère année', details: [ { code: 'C3.7', bullets: ['Mettre en oeuvre la stratégie SMM (social media marketing) en choisissant les plateformes adaptées.', 'Définir les objectifs et KPI, les segments et cibles, le Benchmark Marché.', 'Développer les plateformes communautaires de marque dans le cadre de la stratégie SMM. (réseaux utilisateurs, plateformes partage expériences, blogs d’entreprises ou de marque, plates formes de co-création).', 'Écrire pour les medias sociaux en respectant les codes de sa communauté.', 'Développer et surveiller sa e-réputation . Mettre en place un dispositif de veille.', 'Pratiquer le community management et suivre les KPI', 'Développer des stratégies tribales et virales', 'Utiliser le storytelling sur les medias sociaux'] } ] },
+      { id: 'b3_c5', code: 'M3.5', name: 'Marketing mobile et M-commerce', hours: 21, annee: '2ème année', details: [ { code: 'C3.8', bullets: ['intégrer les enjeux des applications mobiles pour l’entreprise afin de se rendre visible sur mobile (stratégies pull et push). Utiliser les nouvelles applications pour améliorer le parcours client. Utililser l\'IA, la réalité augmentée (AR) et la réalité virtuelle (VR) dans le marketing mobile. Développer le M-commerce en tenant compte de ses spécificités et des moyens de paiement mobile'] } ] },
+      { id: 'b3_c6', code: 'M3.6', name: 'Droit du numérique et conformité RGPD', hours: 16, annee: '2ème année', details: [ { code: 'C3.9', bullets: ['Appliquer le régime de la propriété intellectuelle et ses applications sur internet. La protection de la vie privée et de l’image, la CNIL.', 'Gérer les aspects juridiques d’un projet numérique en intégrant la responsabilité des différents acteurs (FAI, hébergeurs, éditeurs…) et le régime juridique du e-commerce', 'Rendre le projet conforme au RGPD', 'Intégrer les obligations issues du RGAA'] } ] },
+      { id: 'b3_c7', code: 'M3.7', name: 'Management de la performance web et référencement (SEO/SEA)', hours: 24, annee: '1ère année', details: [ { code: 'C3.10', bullets: ['Fournir une vue synthétique de l’audience, en faisant ressortir l’information pertinente eu égard à la stratégie déployée (taux de rebond, fréquentation, taux de conversion…) grâce à un logiciel d’analyse d’audience (google GA4). Ce tableau de bord servira de base aux actions de référencement.', 'Mettre en œuvre les techniques de référencement naturel (SEO) et d’optimisation en vue d’améliorer le référencement', 'Mettre en oeuvre le référencement payant et ses différentes options', 'Créer des référencements auprès d’intermédiaires WEB.', 'Evaluer le ROI (retour sur investissement) de la stratégie webmarketing déployée', 'intégrer le référencement sur les IA de recherche émergentes'] } ] },
+      { id: 'b3_c8', code: 'M3.8', name: 'Pilotage du e-business', hours: 21, annee: '2ème année', details: [ { code: 'C3.11', bullets: ['Définir le modèle économique du site e-commerce', 'Développer des solutions de paiement et de sécurisation.', 'Calibrer la logistique en fonction des objectifs poursuivis.', 'Mettre en œuvre les solutions de :Gestion des stocks, Gestion des commandes, gestion des emballages, optimisation des coûts de transport, gestion des partenaires logistiques, optimisation du processus de traitement des commandes, gestion des retours, gestion de la qualité', 'Mettre en place le Data mining et définir des indicateurs clefs adaptés (NCV (net customer value, CAC (customer acquisition cost), Net promoter score, ROI)', 'mettre en place le e-marchandising', 'évaluer les parcours d’achat (FMOT, ZMOT, SMOT)'] } ] },
     ]
   },
   {
     id: 'b4', num: '04', title: 'Participation au management stratégique et entrepreneuriat', color: 'var(--b4)',
     competencies: [
-      { id: 'b4_c1', code: 'M4.1', name: 'Participation à la stratégie d\'entreprise', hours: 14 },
-      { id: 'b4_c2', code: 'M4.2', name: 'Intelligence économique et veille stratégique', hours: 12 },
-      { id: 'b4_c3', code: 'M4.3', name: 'Management de la marque et du capital de marque', hours: 16 },
-      { id: 'b4_c4', code: 'M4.4', name: 'Management de projet complexe avec des approches agiles', hours: 18 },
-      { id: 'b4_c5', code: 'M4.5', name: 'Contrôle de gestion et tableaux de bord de pilotage', hours: 16 },
-      { id: 'b4_c6', code: 'M4.6', name: 'Diagnostic financier de l\'entreprise', hours: 16 },
-      { id: 'b4_c7', code: 'M4.7', name: 'Construction d\'un business model et d\'un business plan', hours: 20 },
-      { id: 'b4_c8', code: 'M4.8', name: 'Développement d\'une vision prospective et créative', hours: 21 },
-      { id: 'b4_c9', code: 'M4.9', name: 'Droit de la marque et des brevets', hours: 12 },
+      { id: 'b4_c1', code: 'M4.1', name: 'Participation à la stratégie d\'entreprise', hours: 14, annee: '1ère année', details: [ { code: 'C4.1', bullets: ['Développer une vision à long terme de l’entreprise et mettre en place la stratégie pour y parvenir en utilisant des outils appropriés (benchmarking, analyse d’échecs et de best practices, analyse des risques, créativité de groupe)', 'Définir la chaine de valeurs de l’entreprise ou du service', 'Réaliser une approche métiers de l’entreprise', 'Situer et adapter le rôle de la stratégie marketing dans la stratégie globale de l’entreprise'] } ] },
+      { id: 'b4_c2', code: 'M4.2', name: 'Intelligence économique et veille stratégique', hours: 12, annee: '2ème année', details: [ { code: 'C4.2', bullets: ['Intégrer les enjeux de l’intelligence économique et l’utiliser dans la prise de décision stratégique', 'Réaliser un audit informationnel de l’entreprise et cartographier les flux d’information', 'Mettre en œuvre une démarche d’intelligence économique'] } ] },
+      { id: 'b4_c3', code: 'M4.3', name: 'Management de la marque et du capital de marque', hours: 16, annee: '2ème année', details: [ { code: 'C4.3', bullets: ['Evaluer le capital de marque.', 'Gérer le capital de marque et ses applications au Web.', 'Réagir au Marketing viral inversé.'] } ] },
+      { id: 'b4_c4', code: 'M4.4', name: 'Management de projet complexe avec des approches agiles', hours: 18, annee: '1ère année', details: [ { code: 'C4.4', bullets: ['Maitriser le pilotage de projet, définir mission et objectifs, structurer et séquencer, organiser les tâches (PERT, RACI, GANT)', 'créer et manager l’équipe projet, répartir les rôles', 'utiliser des approches agiles (méthode SCRUM)', 'réaliser la budgétisation du projet'] } ] },
+      { id: 'b4_c5', code: 'M4.5', name: 'Contrôle de gestion et tableaux de bord de pilotage', hours: 16, annee: '2ème année', details: [ { code: 'C4.5', bullets: ['Mettre en place le contrôle de gestion pour piloter l’activité, en ayant identifié la structure du management et des centres de responsabilité.', 'Construire le tableau de bord pour mesurer la performance, après avoir défini la chaine de valeur et les facteurs clefs de réussite du tableau de bord,', 'Mettre en place les règles de détermination des coûts'] } ] },
+      { id: 'b4_c6', code: 'M4.6', name: 'Diagnostic financier de l\'entreprise', hours: 16, annee: '2ème année', details: [ { code: 'C4.6', bullets: ['Identifier les mécanismes financiers de l’entreprise et les méthodes de financement d’une activité', 'Analyser bilan et compte de résultat', 'Déterminer la capacité d’autofinancement, le besoin en fonds de roulement, la trésorerie nette', 'Diagnostiquer la performance financière d’une entreprise ou d’un service et sa rentabilité (les SIG, le seuil de rentabilité, indicateurs de performance (EBITDA, cash flow…) et analyser le risque'] } ] },
+      { id: 'b4_c7', code: 'M4.7', name: 'Construction d\'un business model et d\'un business plan', hours: 20, annee: '2ème année', details: [ { code: 'C4.7', bullets: ['Construire un modèle économique et expliquer le schéma de création de valeur de l’entreprise. Modèle CANVAS.', 'Réaliser des prévisions d’activité fiables.', 'Construire et chiffrer le business plan', 'Réaliser un compte de résultat, un tableau de financement et un plan de trésorerie prévisionnel', 'Formaliser un document global convaincant'] } ] },
+      { id: 'b4_c8', code: 'M4.8', name: 'Développement d\'une vision prospective et créative', hours: 21, annee: '2ème année', details: [ { code: 'C4.8', bullets: ['développer une vision créative et prospective, en prenant de la hauteur dans l’analyse des situations et des méthodes', 'Développer la créativité en utilisant les outils appropriés (mindmapping et cartes heuristiques, stretching neuronal, creative problem solving, techniques de la créativité opérationnelle)', 'Vendre son projet à la direction d’entreprise ou à des investisseurs', 'développement d\'une pensée analythique et critique'] } ] },
+      { id: 'b4_c9', code: 'M4.9', name: 'Droit de la marque et des brevets', hours: 12, annee: '2ème année', details: [ { code: 'C4.9', bullets: ['Appliquer et faire respecter le droit de la marque et des brevets en vue de sécuriser les activités de l’entreprise vis-à-vis des tiers et de la loi.'] } ] },
     ]
   },
   {
     id: 'b5', num: '05', title: 'Management opérationnel d\'une équipe, d\'un service', color: 'var(--b5)',
     competencies: [
-      { id: 'b5_c1', code: 'M5.1', name: 'Prise de décision, animation et management d\'équipe', hours: 28 },
-      { id: 'b5_c2', code: 'M5.2', name: 'Management du changement', hours: 15 },
-      { id: 'b5_c3', code: 'M5.3', name: 'Relations de droit du travail avec les salariés', hours: 20 },
-      { id: 'b5_c4', code: 'M5.4', name: 'Management interculturel, à distance et des situations de handicap', hours: 18 },
-      { id: 'b5_c5', code: 'M5.5', name: 'Personal branding et marque personnelle', hours: 8 },
+      { id: 'b5_c1', code: 'M5.1', name: 'Prise de décision, animation et management d\'équipe', hours: 28, annee: '1ère année', details: [ { code: 'C5.1', bullets: ['Décider en utilisant une méthode opérationnelle pour la prise de décision', 'Gérer les dimensions rationnelles et émotionnelles de la décision', 'Partager une vision en adoptant une posture de charisme et d’influence (leadership)', 'Pratiquer l’évaluation à 360°'] }, { code: 'C5.2', bullets: ['Animer un groupe et manager une équipe. S’exprimer avec aisance en public, animer une réunion, gérer les conflits. Connaitre les différents rôles du manager: Leader, coach, médiateur, planificateur… pour adapter son management. Mettre en place une stratégie pour motiver les collaborateurs basée sur les théories de la motivation. Intégrer dans son management les notions de management humaniste (philosophie pour manager) et de manager coach.', 'Préparer sa présentation avec le storytelling, utiliser le schéma narratif et susciter l’émotion'] } ] },
+      { id: 'b5_c2', code: 'M5.2', name: 'Management du changement', hours: 15, annee: '2ème année', details: [ { code: 'C5.3', bullets: ['Analyser les enjeux collectifs et individuels du changement et définir une stratégie d’accompagnement du changement. Repérer les signaux de résistance au changement.', 'Piloter le changement comme un projet et construire un plan d\'action pour faciliter l\'appropriation du changement pour les collaborateurs', 'Utiliser les techniques du coaching pour encadrer le changement'] } ] },
+      { id: 'b5_c3', code: 'M5.3', name: 'Relations de droit du travail avec les salariés', hours: 20, annee: '2ème année', details: [ { code: 'C5.4', bullets: ['Maitriser les aspects légaux et conventionnels lors des principales relations de l’entreprise avec ses salariés (embauche, salaires, congés, absences, formation, licenciement, primes…)'] } ] },
+      { id: 'b5_c4', code: 'M5.4', name: 'Management interculturel, à distance et des situations de handicap', hours: 18, annee: '2ème année', details: [ { code: 'C5.5', bullets: ['manager dans des contextes interculturels variés équipe (Organiser, motiver, communiquer, cadrer, inspirer, souder).Fédérer son équipe autour de valeurs communes pour faire apparaitre un esprit de collaboration au service de la performance collective.', 'Intégrer la dimension interculturelle dans le management.', 'La prise en compte du handicap dans le management (aménager le poste et l’organisation du travail, préparer les conditions favorables à la cohésion de l’équipe, réaliser des points réguliers et mesurer le degré d’intégration)'] } ] },
+      { id: 'b5_c5', code: 'M5.5', name: 'Personal branding et marque personnelle', hours: 8, annee: '1ère & 2ème année', details: [ { code: 'C5.6', bullets: ['Construire et gérer sa propre image en développant sa marque personnelle sur les réseaux sociaux et en gérant ses traces numériques afin de  mettre en place le marketing personnel. Epreuve éliminatoire'] } ] },
     ]
   }
 ];
@@ -483,6 +491,15 @@ function renderBloc(bloc) {
   </div>`;
 }
 
+function renderCompetencyDetails(comp) {
+  if (!comp.details || !comp.details.length) return '';
+  return comp.details.map(d => `
+        <div class="comp-detail-block">
+          <div class="comp-detail-code">${d.code}</div>
+          <ul class="comp-detail-bullets">${(d.bullets||[]).map(b => `<li>${b}</li>`).join('')}</ul>
+        </div>`).join('');
+}
+
 function renderCompetency(comp) {
   const p = progressMap[comp.id] || {};
   const checked = !!p.checked;
@@ -491,22 +508,30 @@ function renderCompetency(comp) {
   const comment = p.comment || '';
   const date = p.updated_at ? new Date(p.updated_at).toLocaleDateString('fr-FR') : '';
   const stars = [1,2,3].map(s => `<span class="star ${s<=level?'lit':''}" onclick="setLevel('${comp.id}',${s})">★</span>`).join('');
+  const hasDetails = comp.details && comp.details.length;
   return `
   <div class="competency-item ${flagged?'is-flagged':''}" id="comp-${comp.id}">
     <div class="comp-check"><input type="checkbox" ${checked?'checked':''} onchange="toggleComp('${comp.id}',this.checked)"></div>
     <div class="comp-body">
-      <div class="comp-name ${checked?'checked':''}">${comp.code?`<span class="comp-code">${comp.code}</span>`:''}${comp.name}${comp.hours?` <span class="comp-hours">(${comp.hours} h)</span>`:''}</div>
+      <div class="comp-name ${checked?'checked':''}">${comp.code?`<span class="comp-code">${comp.code}</span>`:''}${comp.name}${comp.hours?` <span class="comp-hours">(${comp.hours} h)</span>`:''}${comp.annee?` <span class="comp-annee">${comp.annee}</span>`:''}</div>
       <div class="comp-meta">
         <div class="level-stars">${stars}</div>
         <span class="alert-flag ${flagged?'lit':''}" onclick="toggleAlert('${comp.id}')" title="${flagged?'Retirer le signalement':'Signaler une compétence en difficulté'}">🚩</span>
         <span class="comp-comment-toggle" onclick="toggleComment('${comp.id}')">${comment?'✏️ Modifier':'+ Commentaire'}</span>
+        ${hasDetails?`<span class="comp-details-toggle" onclick="toggleDetails('${comp.id}')">📋 Détail des compétences</span>`:''}
         ${date?`<span class="comp-date">${date}</span>`:''}
       </div>
       <div class="comp-comment" id="comment-${comp.id}" style="display:${comment?'block':'none'}">
         <textarea placeholder="Tes notes, exemples, liens de preuves…" onblur="saveComment('${comp.id}',this.value)">${comment}</textarea>
       </div>
+      ${hasDetails?`<div class="comp-details" id="details-${comp.id}" style="display:none">${renderCompetencyDetails(comp)}</div>`:''}
     </div>
   </div>`;
+}
+
+function toggleDetails(compId) {
+  const el = document.getElementById('details-'+compId);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
 }
 
 function toggleBloc(id) {
@@ -706,13 +731,20 @@ async function viewStudent(studentId, studentName) {
     const rows = b.competencies.map(c => {
       const p = pMap[c.id]||{};
       const stars = [1,2,3].map(s => `<span style="color:${s<=(p.level||0)?'var(--warn)':'var(--border)'}">★</span>`).join('');
+      const hasDetails = c.details && c.details.length;
+      const detailRow = hasDetails ? `<tr id="teach-details-${c.id}" style="display:none">
+        <td></td>
+        <td colspan="4" style="padding:.25rem .75rem .75rem">
+          <div class="comp-details">${renderCompetencyDetails(c)}</div>
+        </td>
+      </tr>` : '';
       return `<tr style="${p.flagged?'background:rgba(239,68,68,.08)':''}">
         <td style="padding:.5rem .75rem">${p.checked?'<span style="color:var(--success)">✅</span>':'<span style="color:var(--muted)">○</span>'}</td>
-        <td style="padding:.5rem .75rem;font-size:.85rem">${c.code?`<span style="color:var(--accent2);font-weight:700;margin-right:.35rem">${c.code}</span>`:''}${c.name}${c.hours?` <span style="color:var(--muted);font-size:.78rem">(${c.hours} h)</span>`:''}</td>
+        <td style="padding:.5rem .75rem;font-size:.85rem">${c.code?`<span style="color:var(--accent2);font-weight:700;margin-right:.35rem">${c.code}</span>`:''}${c.name}${c.hours?` <span style="color:var(--muted);font-size:.78rem">(${c.hours} h)</span>`:''}${c.annee?` <span class="comp-annee">${c.annee}</span>`:''}${hasDetails?` <span class="comp-details-toggle" onclick="toggleTeachDetails('${c.id}')">📋 Détail</span>`:''}</td>
         <td style="padding:.5rem .75rem">${stars}</td>
         <td style="padding:.5rem .75rem;text-align:center">${p.flagged?'🚩':''}</td>
         <td style="padding:.5rem .75rem;font-size:.78rem;color:var(--muted);max-width:200px">${p.comment||''}</td>
-      </tr>`;
+      </tr>${detailRow}`;
     }).join('');
     return `<div class="bloc" style="margin-bottom:1rem">
       <div class="bloc-header" onclick="this.parentElement.classList.toggle('open')" style="cursor:pointer">
@@ -746,6 +778,11 @@ async function viewStudent(studentId, studentName) {
       <h3 style="font-size:1rem;margin-bottom:1rem">📒 Notes formateur</h3>
       ${notesHTML}
     </div>`;
+}
+
+function toggleTeachDetails(compId) {
+  const el = document.getElementById('teach-details-'+compId);
+  if (el) el.style.display = el.style.display === 'none' ? 'table-row' : 'none';
 }
 
 function openNoteModal(studentId) {
