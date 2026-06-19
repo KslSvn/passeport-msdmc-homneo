@@ -874,6 +874,16 @@ function toast(msg) {
 
 // ══════════════ BOOT ══════════════
 init();
+
+  // Expose all functions to global scope (required for onclick attributes)
+  Object.assign(window, {
+             doLogin, doMagicLink, doLogout, setLoginTab,
+      navigate, toggleBloc, toggleComp, setLevel, toggleComment, saveComment,
+      openNoteModal, saveNote, closeModal, viewStudent,
+      handleDrop, handleFile, doImport,
+      renderAdmin, renderAdminUsers, renderAdminImport,
+      renderTeacherHome, renderTeacherStudents, renderStudent, renderProgress
+  });
 </script>
 </body>
 </html>
