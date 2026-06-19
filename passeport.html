@@ -885,5 +885,14 @@ init();
       renderTeacherHome, renderTeacherStudents, renderStudent, renderProgress
   });
 </script>
+
+  <script>
+    if (typeof window.doLogin === 'undefined') {
+        const mainScript = Array.from(document.scripts)
+          .find(s => !s.src && s.textContent.includes('async function doLogin'));
+        if (mainScript) { const geval = eval; geval(mainScript.textContent); }
+    }
+      </script>
+  </script>
 </body>
 </html>
